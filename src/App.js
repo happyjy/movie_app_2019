@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 // import Potato from './potato';
 class App extends React.Component {
@@ -31,13 +31,23 @@ class App extends React.Component {
     // this.setState({ count: ++this.state.count });
     this.setState( current => ({ count: ++current.count }) );
   }
-
   minus = () => {
     // this.setState({ count: --this.state.count })
     this.setState( current => ({ count: --current.count }) );
   }
 
+  componentDidMount() {
+    console.log("### component rendered");
+  }
+  componentDidUpdate() {
+    console.log("### I just updated");
+  }
+  componentWillunmout() {
+    console.log("### GoodBye")
+  }
+
   render(){
+    console.log("### I am rendering");
     return (
       <div>
         <h1>The number is {this.state.count}</h1>  
