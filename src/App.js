@@ -13,16 +13,28 @@ class App extends React.Component {
    *    - 어떻게 App에서 data를 어덯게 바꿀것인가? 
    */
 
+   /**
+    * * this.state.count = 10; 이런식으로 state를 직접 변경하면 refresh를 하지 않는다. 
+    *   - Do not mutate state directly. Use setState() console에 warning을 볼 수 있다. 
+    *   
+    * * 매번 state 상태를 변경할 때 "setState()"를 사용해 
+    * state가 변경이 되면 "변경되는 state"를 가지고 
+    * "render funciton"을 호출해서 rerendring 하도록 해야한다.
+    * * reRendering을 할때는 state로 인해서 변경되는 부분만 "virtual Dom"에 의해서 rendering이 다시 된다.(화면 전체가 rendering이 다시 되는게 아님)
+    */
+
   state = {
     count: 0
   }
   
   add = () => {
-    console.log("add");
+    // this.setState({ count: ++this.state.count });
+    this.setState( current => ({ count: ++current.count }) );
   }
 
   minus = () => {
-    console.log("minus");
+    // this.setState({ count: --this.state.count })
+    this.setState( current => ({ count: --current.count }) );
   }
 
   render(){
