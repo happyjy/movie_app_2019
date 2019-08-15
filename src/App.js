@@ -1,7 +1,13 @@
 import React from 'react';
+import Potato from './potato';
 
 function App() {
-  return <div className="App">asdfasdf</div>;
+  return (
+    <div className="App">
+      <h1>Hello</h1>  
+      <Potato></Potato>
+    </div>
+  );
 }
 
 export default App;
